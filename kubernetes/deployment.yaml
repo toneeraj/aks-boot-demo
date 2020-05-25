@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aksdemo
+  labels:
+    run: aksdemo
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      run: aksdemo
+  template:
+    metadata:
+      labels:
+        run: aksdemo
+    spec:
+      containers:
+        - name: aksdemo
+          image: demoregistry01.azurecr.io/aksdemo:v2
+          ports:
+            - containerPort: 8080

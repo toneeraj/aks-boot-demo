@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: aksdemo
+  labels:
+    name: aksdemo
+spec:
+  containers:
+    - name: aksdemo
+      image: demoregistry01.azurecr.io/aksdemo:v2
+      ports:
+        - containerPort: 8080
